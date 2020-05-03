@@ -1,23 +1,35 @@
 {% extends "layout.njk" %}
 
-
-
 {% block content %}
 
-<form class="card" method="post" action="/instructors">
-
-    <section class="avatar" 
-    style="background: url(https://source.unsplash.com/collection/8353395/500x500) no-repeat center center / cover "></section>
+<div class="card">
+        <section 
+            class="avatar" 
+            style="background: url(https://source.unsplash.com/collection/8353395/500x500) no-repeat center center / cover ">
+        </section>
+            
+            
     <section class="details">
-    
-        <h3>Editar Instrutor</h3>
 
-        {% include "instructors/fields.njk" %}
+        <form  method="post" action="/instructors?_method=PUT">
 
-       
+            <h3>Editar Instrutor</h3>
+
+            {% include "instructors/fields.njk" %}
+
+            <input 
+                type="hidden" 
+                name="id" 
+                value={{instructor.id}}>
+        </form>
+
+        <form id="form-delete" action="/instructors?_method=DELETE" method="post">
+            <input type="hidden" name="id" value={{instructor.id}}>
+            <button type="submit">Deletar</button>
+        </form>
+
 
     </section>
-    
-</form>
+</div>
 
 {% endblock content %}
