@@ -15,7 +15,7 @@
             {% for instructor in instructors %}
             <tr>
                 <td>
-                    <span style="background-image: url ({{ instructor.avatar_url }})">  </span>
+                    <span style="background-image: url {{ instructor.avatar_url }}">  </span>
                 {{instructor.nome}}
                 </td>
                 <td class="vs" >{{instructor.services}}</td>
