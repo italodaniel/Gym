@@ -5,26 +5,26 @@
 <div class="card">
         <section 
             class="avatar" 
-            style="background: url({{instructor.avartar.url}}) no-repeat center center / cover ">
+            style="background: url({{member.avartar.url}}) no-repeat center center / cover ">
         </section>
             
             
     <section class="details">
 
-        <form  method="post" action="/instructors?_method=PUT">
+        <form  method="post" action="/members?_method=PUT">
 
-            <h3>Editar Instrutor</h3>
+            <h3>Editar Membro</h3>
 
-            {% include "instructors/fields.njk" %}
+            {% include "members/fields.njk" %}
 
             <input 
                 type="hidden" 
                 name="id" 
-                value={{instructor.id}}>
+                value={{member.id}}>
         </form>
 
-        <form id="form-delete" action="/instructors?_method=DELETE" method="post">
-            <input type="hidden" name="id" value={{instructor.id}}>
+        <form id="form-delete" action="/members?_method=DELETE" method="post">
+            <input type="hidden" name="id" value={{member.id}}>
             <button type="submit">Deletar</button>
         </form>
 
@@ -36,9 +36,9 @@
 
     const formDelete = document.querySelector("#form-delete")
     formDelete.addEventListener("submit",function(event){
-        const confirmation= confirm ("Deseja Deletar ?")
+         const confirmation= confirm ("Deseja Deletar ?")
         if(!confirmation){
-             event.preventDefault()
+            event.preventDefault()
         }
     })
 
